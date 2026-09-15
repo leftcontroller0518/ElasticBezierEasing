@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>ElasticBezierEasing</AssemblyName>
+    <RootNamespace>ElasticBezierEasing</RootNamespace>
+
+    <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\'))</RepoRoot>
+    <PathMap>$(RepoRoot)=.</PathMap>
+
+    <!-- NuGetのDLL（= Harmony）をビルド出力にコピーする -->
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Private を書かない（デフォルトtrue）→ 0Harmony.dll がビルド出力に出てくる -->
+    <PackageReference Include="Lib.Harmony" Version="2.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--
+      YMM4本体のDLL。IterativeMovementExtension と同様に、
+      YukkuriMovieMaker.Plugin.dll と YukkuriMovieMaker.Controls.dll の2つだけを参照する。
+      （Animation / AnimationType / AnimationTypeEx 等の YukkuriMovieMaker.Commons 名前空間の型は
+        YukkuriMovieMaker.Plugin.dll 側から透過的に利用できる前提。参照エラーになる場合は
+        YukkuriMovieMaker.Commons.dll への参照を追加すること）
+      YMM4側にあるDLLなのでコピーしない(Private=false)。
+    -->
+    <Reference Include="YukkuriMovieMaker.Plugin">
+      <HintPath>$(YMM4DirPath)YukkuriMovieMaker.Plugin.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="YukkuriMovieMaker.Controls">
+      <HintPath>$(YMM4DirPath)YukkuriMovieMaker.Controls.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- ビルド後、YMM4の user\plugin フォルダへ自動コピーする（YMM4起動中でロックされていてもビルド自体は通す） -->
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if not exist &quot;$(YMM4DirPath)user\plugin\$(ProjectName)&quot; mkdir &quot;$(YMM4DirPath)user\plugin\$(ProjectName)&quot;" ContinueOnError="true" />
+    <Exec Command="copy /Y &quot;$(TargetDir)*.dll&quot; &quot;$(YMM4DirPath)user\plugin\$(ProjectName)\&quot; &gt; NUL" ContinueOnError="true" />
+  </Target>
+
+</Project>

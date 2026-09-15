@@ -1,0 +1,26 @@
+﻿# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio / IDE
+.vs/
+.idea/
+*.user
+*.userosct
+*.suo
+*.userprefs
+*.docstates
+
+# Temporary files
+inspect_tmp*/
+cecil_tmp*/
+decompile_tmp*/
+*.tmp
+decompile_result.txt
+test_*.cs
+sim.cs

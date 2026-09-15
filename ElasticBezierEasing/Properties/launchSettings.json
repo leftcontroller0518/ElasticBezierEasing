@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "ElasticBezierEasing": {
+      "commandName": "Project"
+    },
+    "わいえむえむ": {
+      "commandName": "Executable",
+      "executablePath": "C:\\YMM4\\YukkuriMovieMaker.exe"
+    }
+  }
+}
