@@ -1,4 +1,8 @@
 # ElasticBezierEasing
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](#)
+[![.NET](https://img.shields.io/badge/.NET-10.0-blue.svg)](#)
+[![Downloads](https://img.shields.io/github/downloads/leftcontroller0518/ElasticBezierEasing/total)](https://github.com/leftcontroller0518/ElasticBezierEasing/releases/latest)
+
 > [!NOTE]
 > このプラグインはharmonyというライブラリを使用しています。
 > ライセンスは[こちらをご参照ください](https://github.com/leftcontroller0518/ElasticBezierEasing/blob/main/Harmony_LICENSE)。
