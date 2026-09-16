@@ -59,7 +59,7 @@ ElasticBezierEasing/
 
 ## ID競合について
 本プラグインは `AnimationType` に独自ID（デフォルト: 1,300,000〜2,299,999）を割り当てています。
-他のプラグイン（IterativeMovementExtension含む）とIDが競合する場合は、
+ほとんどないとは思われますが、他のプラグインとIDが競合する場合は、
 プラグインフォルダ内の `config.json` を開き `BaseId` を書き換えてから YMM4 を再起動してください。
 
 ## ライセンス
