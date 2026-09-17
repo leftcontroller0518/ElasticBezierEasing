@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](#)
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue.svg)](#)
 [![Downloads](https://img.shields.io/github/downloads/leftcontroller0518/ElasticBezierEasing/total)](https://github.com/leftcontroller0518/ElasticBezierEasing/releases/latest)
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8e271889-505e-4f75-8874-57d33882f24a" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fddef2ad-66c0-48b7-9d0b-b0cb2e676edf" />
 
 
 > [!NOTE]
